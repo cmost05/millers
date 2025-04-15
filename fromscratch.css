@@ -1,0 +1,153 @@
+h1{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: xx-large;
+    background-color: rgba(238, 169, 169, 0.757);
+}
+h2{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: x-large;
+    background-color: rgba(238, 169, 169, 0.429);
+}
+div{
+    font-family: 'Didot', 'Arial Narrow', Arial, sans-serif;
+    background-color: bisque;
+    font-size: small;
+    position: relative;
+    float: right;
+    top: 50px;
+}
+body{
+    text-align: center;
+    font-family: 'Didot', 'Arial Narrow', Arial, sans-serif;
+    background-color: bisque;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+ol{
+    text-align: center;
+    font-family: 'Salina';
+    margin: auto;
+    display: inline-block;
+    font-size: large;
+}
+ul{
+    text-align: center;
+    font-family: 'Salina';
+    margin: auto;
+    display: inline-block;
+    font-size: medium;
+}
+a{
+    color: rgb(0, 0, 0);
+}
+img{
+    border: 5px solid rgba(238, 169, 169, 0.757);
+    padding: 2px;
+    height: 400px;
+    width: 700px;
+    margin: auto;
+    display: block;
+}
+.nav{
+    position: absolute;
+    float: right;
+    top: 2px;
+}
+    .horizontal-list {
+        display: flex;
+        list-style: none; /* Remove default list styling */
+        padding: 0;
+        margin: 0 auto;
+        gap: 50px;
+        justify-content: center;
+        counter-reset: list-counter; /* Initialize a counter */
+    }
+.horizontal-list > li{
+        counter-increment: list-counter; /* Increment the counter for each <li> */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+    .horizontal-list > li::before {
+        content: counter(list-counter) ". "; /* Add the counter before each <li> */
+        position: absolute;
+        left: -20px; /* Adjust position as needed */
+    }
+    h5#travel-tips {
+        display: block; /* Ensure the element is visible */
+        font-size: large;
+        color: black;
+        text-align: center;
+        margin: 20px 0;
+    }
+    #quiz-container {
+        text-align: center;
+        margin: 0 auto; /* Center the container horizontally */
+        padding: 20px; /* Add spacing inside the container */
+        border: 2px solid rgba(238, 169, 169, 0.757); /* Light pink border */
+        border-radius: 10px; /* Rounded corners */
+        background-color: rgba(238, 169, 169, 0.2); /* Light pink background */
+        width: 80%; /* Set the container width */
+        max-width: 600px; /* Limit the maximum width */
+        display: flex; /* Use flexbox for alignment */
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+        box-sizing: border-box; /* Include padding and border in width/height */
+        position: relative;
+    }
+    
+    #question {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+        text-align: center; /* Ensure the question text is centered */
+        width: 100%; /* Ensure the question spans the container */
+    }
+    
+    .answer-btn {
+        display: block;
+        margin: 10px auto;
+        padding: 10px 20px;
+        font-size: 1em;
+        background-color: rgba(238, 169, 169, 0.757);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        width: 100%; /* Make buttons consistent in width */
+        max-width: 300px; /* Limit button width */
+        text-align: center; /* Center-align button text */
+    }
+    
+    #answers {
+        display: flex; /* Use flexbox for horizontal alignment */
+        justify-content: center; /* Center the buttons horizontally */
+        gap: 10px; /* Add spacing between the buttons */
+        flex-wrap: wrap; /* Allow wrapping if the buttons don't fit in one row */
+    }
+    
+    #result-container {
+        font-size: 1.2em;
+        margin-top: 20px;
+        text-align: center;
+    }
+    .rounded-graph {
+        border-radius: 15px; /* Add rounded edges */
+        overflow: hidden; /* Ensure content stays within rounded edges */
+        border: 2px solid rgba(238, 169, 169, 0.757); /* Optional: Add a border */
+        margin: 20px auto; /* Center the graph and add spacing */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+    }
+    .footer {
+        background-color: rgba(238, 169, 169, 0.516); /* Light pink background */
+        color: rgb(0, 0, 0); /* White text color */
+        text-align: center; /* Center the text */
+        padding: 5px 0; /* Reduce padding for a smaller height */
+        border-top: 2px solid rgba(238, 169, 169, 0.9); /* Optional: Add a darker pink border at the top */
+        font-size: 0.9em; /* Reduce font size */
+        position: relative; /* Ensure it stays at the bottom of the content */
+    }

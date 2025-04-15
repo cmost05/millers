@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Quiz</title>
+    <link rel="stylesheet" href="travelquiz.css">
+</head>
+<div class="common content"></div>
+<body><div class="common nav">
+    <a href="fromscratch.html">TRAVEL</a>
+</div>
+    <h4 class = "quiz-header">Travel Quiz</h4>
+    <div id="quiz-container">
+        <div id="question-container">
+            <p id="question"></p>
+            <div id="answers">
+                <button class="answer-btn" onclick="selectAnswer(0)">Answer 1</button>
+                <button class="answer-btn" onclick="selectAnswer(1)">Answer 2</button>
+                <button class="answer-btn" onclick="selectAnswer(2)">Answer 3</button>
+                <button class="answer-btn" onclick="selectAnswer(3)">Answer 4</button>
+            </div>
+        </div>
+        <div id="result-container" style="display: none;">
+            <p id="result"></p>
+            <button onclick="restartQuiz()">Restart Quiz</button>
+        </div>
+    </div>
+    <script>
+        const questions = [
+    {
+        question: "Which city is known as the 'City of Light'?",
+        answers: ["Paris", "New York", "Tokyo", "London"],
+        correct: 0
+    },
+    {
+        question: "Which country is home to the Great Barrier Reef?",
+        answers: ["Australia", "Brazil", "South Africa", "India"],
+        correct: 0
+    },
+    {
+        question: "What is the capital of Japan?",
+        answers: ["Beijing", "Seoul", "Tokyo", "Bangkok"],
+        correct: 2
+    },
+    {
+        question: "Which famous landmark is located in Rome, Italy?",
+        answers: ["Eiffel Tower", "Colosseum", "Big Ben", "Statue of Liberty"],
+        correct: 1
+    }
+];
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+function showQuestion() {
+    const questionElement = document.getElementById("question");
+    const answerButtons = document.querySelectorAll(".answer-btn");
+
+    const currentQuestion = questions[currentQuestionIndex];
+    questionElement.textContent = currentQuestion.question;
+
+    answerButtons.forEach((button, index) => {
+        button.textContent = currentQuestion.answers[index];
+        button.disabled = false;
+    });
+}
+
+function selectAnswer(selectedIndex) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const answerButtons = document.querySelectorAll(".answer-btn");
+
+    if (selectedIndex === currentQuestion.correct) {
+        score++;
+    }
+
+    answerButtons.forEach((button, index) => {
+        button.disabled = true;
+        if (index === currentQuestion.correct) {
+            button.style.backgroundColor = "green";
+        } else {
+            button.style.backgroundColor = "red";
+        }
+    });
+
+    setTimeout(() => {
+        answerButtons.forEach((button) => {
+            button.style.backgroundColor = "";
+        });
+
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            showQuestion();
+        } else {
+            showResult();
+        }
+    }, 1000);
+}
+
+function showResult() {
+    document.getElementById("question-container").style.display = "none";
+    const resultContainer = document.getElementById("result-container");
+    resultContainer.style.display = "block";
+
+    const resultElement = document.getElementById("result");
+    resultElement.textContent = `You scored ${score} out of ${questions.length}!`;
+}
+
+function restartQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+
+    document.getElementById("result-container").style.display = "none";
+    document.getElementById("question-container").style.display = "block";
+
+    showQuestion();
+}
+
+// Start the quiz when the page loads
+document.addEventListener("DOMContentLoaded", showQuestion);
+    </script>
+</body>
+</html>
